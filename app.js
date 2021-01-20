@@ -1,21 +1,23 @@
-//import scrStory from "./scrStory.js"
+import pStory from "./pStory.js"
+
+var cnt = 0;
 
 var app = new Vue({
-  el: "#vue-app",
+  el: "#vApp",
   data: {
     show: true,
-    scrAlertMsg :'mmmmmm',
-    scrStoryMsgX :'^66666',
-    scrStoryImgSrc:"img/zelda.jpg",
-    heading: "Vue.js",
-    message: "Happiness makes up in height what it lacks in length."
+    dStory: null,
   },
   methods: {
-    click: function() {
-      //this.show = !this.show
-      this.message = 'iiiiiytfff';
-    }
+    mStoryBtn: function() {
+      cnt++;
+      this.dStory = pStory['init'][cnt];
+    },
   },
+  created: function() {
+    this.dStory = pStory['init'][cnt];
+  },
+
 });
 
 //export default app;

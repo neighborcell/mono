@@ -12,7 +12,7 @@
 </head>
 
 <body class=" h-100 text-white bg-dark">
-  <div id="vue-app">
+  <div id="vApp">
     <!-- nav -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
@@ -39,7 +39,7 @@
         </div>
       </div>
     </nav>
-    <div id="scrGame" class="d-none">
+    <div id="vGame" class="d-none">
       <div class="container">
         <div class="starter-template text-center py-5 px-3">
           <h1>Bootstrap starter template</h1>
@@ -47,16 +47,12 @@
         </div>
       </div>
     </div>
-    <div id="scrStory" class="d-none0">
-      <img id="scrStoryImg" :src="scrStoryImgSrc" />
-      <div id="scrStoryMsg" @click="click" v-if="show">
-        <p>{{scrStoryMsgX}}</p>
-        <div class="button">ppp</div>
+    <div id="vStory" class="card">
+      <img id="vStoryImg" :src="dStory.img" class="card-img-top">
+      <div class="card-body">
+        <p class="card-text text-black">{{dStory.msg}}</p>
+       <a class="btn btn-primary" v-on:click="mStoryBtn()">{{dStory.btn}}</a>
       </div>
-    </div>
-    <div id="scrAlert" class="d-none">
-      <p>{{scrAlertMsg}}</p>
-      <div class="btn">uuuu</div>
     </div>
   </div>
   <script src="/res/bootstrap.js"></script>
