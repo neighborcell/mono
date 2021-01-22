@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Vue.js</title>
-  <script src="/res/vue@2.6.12.js"></script>
-  <link rel="stylesheet" href="/res/bootstrap.css">
-  <link rel="stylesheet" href="style.css">
+  <script src="./res/vue@2.6.12.js"></script>
+  <link rel="stylesheet" href="./res/bootstrap.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body class=" h-100 text-white bg-dark">
@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Fixed navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" v-if="dMessage == null">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -47,17 +47,16 @@
         </div>
       </div>
     </div>
-    <div id="vStory" class="card">
-      <img id="vStoryImg" :src="dStory.img" class="card-img-top">
+    <div id="vMessage" class="card" v-if="dMessage != null">
+      <img id="vMessageImg" :src="dMessage.img" v-if="dMessage.img != null" class="card-img-top">
       <div class="card-body">
-        <p class="card-text text-black">{{dStory.msg}}</p>
-       <a class="btn btn-primary" v-on:click="mStoryBtn()">{{dStory.btn}}</a>
+        <p class="card-text text-black">{{dMessage.text}}</p>
+        <a class="btn btn-primary" v-on:click="mMessageBtn()">{{dMessage.btn}}</a>
       </div>
     </div>
   </div>
-  <script src="/res/bootstrap.js"></script>
-  <!-- <script src="app.js"></script>-->
-  <script type="module" src="app.js"></script>
+  <script src="./res/bootstrap.js"></script>
+  <script type="module" src="./app.js"></script>
 </body>
 
 </html>

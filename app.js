@@ -1,23 +1,18 @@
-import pStory from "./pStory.js"
-
-var cnt = 0;
+import pMessage from "./pMessage.js"
 
 var app = new Vue({
   el: "#vApp",
   data: {
     show: true,
-    dStory: null,
+    dMessage: null,
   },
   methods: {
-    mStoryBtn: function() {
-      cnt++;
-      this.dStory = pStory['init'][cnt];
+    mMessageBtn: function() {
+      this.dMessage = pMessage.getMessage('init');
     },
   },
   created: function() {
-    this.dStory = pStory['init'][cnt];
+    this.dMessage = pMessage.getMessage('init');
   },
 
 });
-
-//export default app;
