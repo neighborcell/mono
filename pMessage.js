@@ -2,56 +2,63 @@ var pMessage = {
   dic: {
     'none': [
       {
-        'title': '',
         'img': '',
-        'text': '',
-        'btn': '',
+        'txt': '',
+        'btn': [],
             },
       ],
     'init': [
       {
-        'title': 'あああああ',
-        'img': 'img/zelda.jpg',
-        'text': 'とととと',
-        'btn': '押忍',
+        'img': 'img/ladatom.png',
+        'txt': 'とととと',
+        'btn': [
+          { 'txt': '押忍', 'evt': 'init' },
+          { 'txt':'xxxx', 'evt': null },
+          ],
     },
       {
-        'title': 'あああああ',
         'img': null,
-        'text': 'けけけけけ',
-        'btn': 'お酢',
+        'txt': 'けけけけけ',
+        'btn': [
+          { 'txt':'お酢','evt': null }
+          ],
     }
     ],
   },
   cnt: 0,
-  current: '',
-  getMessage: function(key) {
-    var rtn
-    if(key == null)
+  crtkey: '',
+  crtdic: '',
+  get: function(key) {
+    if (key == null)
     {
       this.cnt = 0
-      this.current = null
-      rtn = null
+      this.crtdic = null
     }
-    else if (this.current != key)
+    else if (this.crtkey != key)
     {
       this.cnt = 0
-      this.current = key
-      rtn = this.dic[key][this.cnt]
+      this.crtdic = this.dic[key][this.cnt]
     }
     else if (this.dic[key].length > this.cnt + 1)
     {
       this.cnt++
-      rtn = this.dic[key][this.cnt]
+      this.crtdic = this.dic[key][this.cnt]
     }
     else
     {
       this.cnt = 0
-      this.current = null
-      rtn = null
+      this.crtdic = null
     }
-    return rtn
-  }
+    this.crtkey = key
+    return this.crtdic
+  },
+  next: function(btnidx) {
+      if ( this.crtdic == null )
+      {
+        return this.get(null)
+      }
+      return this.get(this.crtdic.btn[btnidx].evt)
+  },
 };
 
 export default pMessage;

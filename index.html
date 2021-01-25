@@ -50,8 +50,9 @@
     <div id="vMessage" class="card" v-if="dMessage != null">
       <img id="vMessageImg" :src="dMessage.img" v-if="dMessage.img != null" class="card-img-top">
       <div class="card-body">
-        <p class="card-text text-black">{{dMessage.text}}</p>
-        <a class="btn btn-primary" v-on:click="mMessageBtn()">{{dMessage.btn}}</a>
+        <p class="card-text text-black">{{dMessage.txt}}</p>
+        <a class="btn btn-primary" v-on:click="mMessageBtn(0)" v-if="dMessage.btn.length>0">{{dMessage.btn[0].txt}}</a>
+        <a class="btn btn-primary" v-on:click="mMessageBtn(1)" v-if="dMessage.btn.length>1">{{dMessage.btn[1].txt}}</a>
       </div>
     </div>
   </div>

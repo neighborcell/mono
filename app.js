@@ -7,12 +7,12 @@ var app = new Vue({
     dMessage: null,
   },
   methods: {
-    mMessageBtn: function() {
-      this.dMessage = pMessage.getMessage('init');
+    mMessageBtn: function(btnidx) {
+      this.dMessage = pMessage.next(btnidx);
     },
   },
   created: function() {
-    this.dMessage = pMessage.getMessage('init');
+    this.dMessage = pMessage.get('init');
   },
 
 });
